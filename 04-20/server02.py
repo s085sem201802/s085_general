@@ -1,9 +1,14 @@
 from socket  import *
-from constCS import * #-
+# from constCS import * #-
+
+HOST = ''
+PORT = 2001
 
 s = socket(AF_INET, SOCK_STREAM) 
 s.bind((HOST, PORT))  
-s.listen(1)           
+s.listen(1)
+print "Escutando na porta " + str(PORT)
+
 (conn, addr) = s.accept()  # returns new socket and addr. client 
 while True:                # forever
   data = conn.recv(1024)   # receive data from client
