@@ -8,6 +8,7 @@ s.listen(1)
 while True:                # forever
   data = conn.recv(1024)   # receive data from client
   if not data: break       # stop if client stopped
+
   if data == "EnvioProtocoloA":
     print "Dados recebidos: " + data
     conn.send("RespostaProtocoloA")
@@ -20,5 +21,10 @@ while True:                # forever
     print "Dados recebidos: " + data
     conn.send("RespostaProtocoloC")
     
+  else: 
+    print "Mensagem nao reconhecida"
+    print "Dados recebidos: " + data
+    conn.send("MensagemNaoReconhecida")
+  
   #conn.send(str(data)+"*") # return sent data plus an "*"
 conn.close()               # close the connection
