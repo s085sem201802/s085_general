@@ -7,6 +7,6 @@ p = "tcp://"+ HOST +":"+ PORT        # how and where to communicate
 s.connect(p)                         # connect to the server
 s.setsockopt(zmq.SUBSCRIBE, "TIME")  # subscribe to TIME messages
 
-for i in range(5):  # Five iterations
+for i in range(10):  # Five iterations
   time = s.recv()   # receive a message 
   print time       

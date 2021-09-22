@@ -11,5 +11,6 @@ s.bind(p)                             # bind socket to address
 
 for i in range(100):                  # generate 100 workloads
   workload = random.randint(1, 100)   # compute workload
+  time.sleep(workload*0.01)
   s.send(pickle.dumps((me,workload))) # send workload to worker
 
