@@ -6,7 +6,7 @@ p1 = "tcp://"+ HOST +":"+ PORT1 # how and where to connect
 s  = context.socket(zmq.REQ)    # create request socket
 
 s.connect(p1)                   # block until connected
-s.send("Hello world")           # send message
+s.send(b"Hello world")           # send message
 message = s.recv()              # block until response
-s.send("STOP")                  # tell server to stop
-print message                   # print result
+s.send(b"STOP")                  # tell server to stop
+print(message.decode())                   # print result

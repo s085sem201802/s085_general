@@ -10,7 +10,8 @@ s.bind(p1)                      # bind socket to address
 s.bind(p2)                      # bind socket to address
 while True:
   message = s.recv()            # wait for incoming message
-  if not "STOP" in message:     # if not to stop...
-    s.send(message + "*")       # append "*" to message
+  if not "STOP" in str(message):     # if not to stop...
+    reply = str(message.decode())+'*'
+    s.send(reply.encode())       # append "*" to message
   else:                         # else...
     break                       # break out of loop and end
